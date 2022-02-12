@@ -101,7 +101,7 @@ def main():
     # work_dir is determined in this priority: CLI > segment in file > filename
     if args.work_dir is not None:
         # update configs according to CLI args if args.work_dir is not None
-        cfg.work_dir = args.work_dir
+        cfg.work_dir = args.work_dir + '_' + time.strftime('%Y%m%d_%H%M00', time.localtime())  # 给dir加上一个时间戳 ------
     elif cfg.get('work_dir', None) is None:
         # use config filename as default work_dir if cfg.work_dir is None
         cfg.work_dir = osp.join('./work_dirs',
