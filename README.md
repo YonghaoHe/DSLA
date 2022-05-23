@@ -25,6 +25,11 @@
 
 ## DSLA: Dynamic Smooth Label Assignment for Efficient Anchor-free Object Detection
 This is the official repo archiving the source code of **DSLA**. The main scripts include:  
+* implementation of DSLA: [dsla_head.py](mmdet/models/dense_heads/dsla_head.py)
+* configs: [configs](configs/dsla)
+
+
+For other instructions, please check the following original README from mmdetection. 
 
 
 ## Introduction
