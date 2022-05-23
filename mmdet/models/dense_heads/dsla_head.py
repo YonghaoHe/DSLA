@@ -13,9 +13,7 @@ INF = 1e8
 
 
 @HEADS.register_module()
-class SmoothedLabelLearningHead(AnchorFreeHead):
-    """
-    """
+class DSLAHead(AnchorFreeHead):
 
     def __init__(self,
                  num_classes,
@@ -27,11 +25,9 @@ class SmoothedLabelLearningHead(AnchorFreeHead):
                  enable_centerness_core_zone=True,
                  enable_iou_score_coupling=True,
                  enable_iou_score_only=False,
-
                  center_sampling=False,
                  center_sample_radius=1.5,
                  norm_on_bbox=False,
-
                  loss_cls=dict(
                      type='QualityFocalLoss',
                      use_sigmoid=True,
@@ -168,22 +164,6 @@ class SmoothedLabelLearningHead(AnchorFreeHead):
         flatten_bbox_reg_targets = torch.cat(bbox_reg_targets)
         # repeat points to align with bbox_preds
         flatten_points = torch.cat([points.repeat(num_imgs, 1) for points in all_level_points])
-
-        # save to file for drawing images
-        # flatten_cls_score_preds_numpy = flatten_cls_score_preds.sigmoid().detach().cpu().numpy()
-        # numpy.savetxt('/home/yonghaohe/projects/mmdetection-2.10.0/local_test/PR-journal_related/fcos_sll_save/cls_score_pred.txt',
-        #               flatten_cls_score_preds_numpy,
-        #               fmt='%.02f')
-        #
-        # flatten_cls_score_targets_numpy = flatten_cls_score_targets.detach().cpu().numpy()
-        # numpy.savetxt('/home/yonghaohe/projects/mmdetection-2.10.0/local_test/PR-journal_related/fcos_sll_save/cls_score_target.txt',
-        #               flatten_cls_score_targets_numpy,
-        #               fmt='%.02f')
-        #
-        # flatten_points_numpy = flatten_points.detach().cpu().numpy()
-        # numpy.savetxt('/home/yonghaohe/projects/mmdetection-2.10.0/local_test/PR-journal_related/fcos_sll_save/points.txt',
-        #               flatten_points_numpy,
-        #               fmt='%d')
 
         # FG cat_id: [0, num_classes -1], BG cat_id: num_classes
         # 此时labels是PxC的，C为类别数，首先需要获取每个point的最大值

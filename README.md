@@ -22,6 +22,11 @@
 
 </div>
 
+
+## DSLA: Dynamic Smooth Label Assignment for Efficient Anchor-free Object Detection
+This is the official repo archiving the source code of **DSLA**. The main scripts include:  
+
+
 ## Introduction
 
 English | [简体中文](README_zh-CN.md)

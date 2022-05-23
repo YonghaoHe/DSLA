@@ -3,7 +3,7 @@ from .single_stage import SingleStageDetector
 
 
 @DETECTORS.register_module()
-class SmoothedLabelLearning(SingleStageDetector):
+class DSLA(SingleStageDetector):
     """"""
 
     def __init__(self,
@@ -13,5 +13,5 @@ class SmoothedLabelLearning(SingleStageDetector):
                  train_cfg=None,
                  test_cfg=None,
                  pretrained=None):
-        super(SmoothedLabelLearning, self).__init__(backbone, neck, bbox_head, train_cfg,
-                                                    test_cfg, pretrained)
+        super(DSLA, self).__init__(backbone, neck, bbox_head, train_cfg,
+                                   test_cfg, pretrained)
