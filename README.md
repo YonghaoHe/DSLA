@@ -23,7 +23,7 @@ to supervise the classification branch. Under such supervision, quality estimati
 naturally merged into the classification branch, which simplifies the architecture of anchor-free 
 detector. Comprehensive experiments are conducted on the MS COCO benchmark. It is demonstrated that,
 DSLA can significantly boost the detection accuracy by alleviating the above inconsistencies for 
-anchor-free detectors. Our paper is available [here]().
+anchor-free detectors. Our paper is available [here](https://arxiv.org/abs/2208.00817).
 
 ![Approach](resources/img.png)
 We adopt the similar network with FCOS except that the centerness branch is
