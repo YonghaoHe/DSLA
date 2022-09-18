@@ -26,6 +26,7 @@ DSLA can significantly boost the detection accuracy by alleviating the above inc
 anchor-free detectors. Our paper is available [here](https://arxiv.org/abs/2208.00817).
 
 ![Approach](resources/img.png)
+
 We adopt the similar network with FCOS except that the centerness branch is
 omitted. In the head of our method, only two branches, classification branch 
 and regression branch, are reserved. The inner structures are the same as ones 
