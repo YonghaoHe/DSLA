@@ -48,10 +48,6 @@ boxes and the gt boxes.
 
 | Backbone  | Style   | GN      | MS train | Tricks  | DCN     | Lr schd | box AP | Config | Download |
 |:---------:|:-------:|:-------:|:--------:|:-------:|:-------:|:-------:|:------:|:------:|:--------:|
-| R-50      | caffe   | Y       | N        | N       | N       | 1x      |  | [config]() | [model]() &#124; [log]() |
-| R-101     | caffe   | Y       | N        | N       | N       | 1x      |  | [config]() | [model]() &#124; [log]() |
-
-| Backbone  | Style   | GN      | MS train | Lr schd | box AP | Config | Download |
-|:---------:|:-------:|:-------:|:--------:|:-------:|:------:|:------:|:--------:|
-| R-50      | caffe   | Y       | Y        | 2x      |   | [config]() | [model]() &#124; [log]() |
-| R-101     | caffe   | Y       | Y        | 2x      |   | [config]() | [model]() &#124; [log]() |
+| R-50      | caffe   | Y       | N        | N       | N       | 1x      | 0.381 | [config](dsla_r50_caffe_fpn_gn-head_1x_coco.py) | [model](https://pan.baidu.com/s/1fi-8CU82REpVfD-i9qexrA) (Pwd:utia) &#124; [log](dsla_r50_20210826_135127.log) |
+| R-101     | caffe   | Y       | Y        | Y       | Y       | 2x      |  | [config]() | [model]() &#124; [log]() |
+| Swin-S    | -       | Y       | Y        | Y       | Y       | 3x      | 0.492 | [config](dsla_swin-s-p4-w7_fpn_gn-head_3x_coco.py) | [model](https://pan.baidu.com/s/1Nnx1kbURISZAveBDlCU3ow) (Pwd:ggsk) &#124; [log](dsla_swin-s-p4-w7_20220515_200633.log) |

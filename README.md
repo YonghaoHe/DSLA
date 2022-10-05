@@ -2,8 +2,6 @@
 ## DSLA: Dynamic Smooth Label Assignment for Efficient Anchor-free Object Detection
 This is the official repo archiving the source code of **DSLA**.  
 
-### **(The repo is under construction currently)**
-
 ### Introduction
 Anchor-free detectors basically formulate object detection as dense classification and regression. 
 For popular anchor-free detectors, it is common to introduce an individual prediction branch to 
