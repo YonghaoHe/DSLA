@@ -11,19 +11,20 @@ model = dict(
         num_stages=4,
         out_indices=(0, 1, 2, 3),
         frozen_stages=1,
-        norm_cfg=dict(type='BN', requires_grad=False),
+        norm_cfg=dict(type='BN', requires_grad=True),
+        dcn=dict(type='DCN', deform_groups=1, fallback_on_stride=False),
+        stage_with_dcn=(False, True, True, True),
         norm_eval=True,
-        style='caffe',
+        style='pytorch',
         init_cfg=dict(
             type='Pretrained',
-            checkpoint='open-mmlab://detectron/resnet101_caffe')),
+            checkpoint='torchvision://resnet101')),
     neck=dict(
         type='FPN',
         in_channels=[256, 512, 1024, 2048],
         out_channels=256,
         start_level=1,
         add_extra_convs=True,
-        extra_convs_on_inputs=False,  # use P5
         num_outs=5,
         relu_before_extra_convs=True),
     bbox_head=dict(
@@ -47,8 +48,12 @@ model = dict(
             use_sigmoid=True,
             beta=2.0,
             loss_weight=1.0),
-        loss_bbox=dict(type='IoULoss', loss_weight=1.0),
-        dcn_on_last_conv=True,),
+        loss_bbox=dict(type='GIoULoss', loss_weight=1.0),
+        norm_on_bbox=True,
+        dcn_on_last_conv=True,
+        center_sampling=True,
+        center_sample_radius=1.5,
+        conv_bias=True),
 
     # training and testing settings
     train_cfg=dict(
@@ -68,7 +73,7 @@ model = dict(
         nms=dict(type='nms', iou_threshold=0.6),
         max_per_img=100))
 img_norm_cfg = dict(
-    mean=[102.9801, 115.9465, 122.7717], std=[1.0, 1.0, 1.0], to_rgb=False)
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
